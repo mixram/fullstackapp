@@ -1,0 +1,40 @@
+plugins {
+    id("org.springframework.boot") version "2.4.5"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("java")
+}
+
+group = "com.mixram.fullstackapp"
+version = "0.1.0.0.0"
+description = "App for fullstack development study"
+java.sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-mail")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-log4j2")
+
+    implementation("io.jsonwebtoken:jjwt-gson:0.11.2")
+    implementation("org.postgresql:postgresql:42.2.5")
+    implementation("org.projectlombok:lombok:1.18.20")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
